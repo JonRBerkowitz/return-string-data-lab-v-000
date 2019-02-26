@@ -12,7 +12,7 @@ $(function () {
       $.get("/products/" + id + "/inventory", function(data) {
         if (data === true) {
           $("#body-" + id).append("Available");
-          else {
+        } else {
             $("#body-" + id).append("Sold Out");
           }
         }
