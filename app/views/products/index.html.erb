@@ -8,8 +8,13 @@ $(function () {
   $(".js-more").on('click', function() {
     let id = $(this).data("id");
     $.get("/products/" + id + "/description", function(data) {
-      $("#body-" + id).text(data);
-
+      $.get("/products/" + id + "/inventory", function(inventory) {
+        let inventoryText = "<strong>Available</strong>";
+        if(inventory === "false"){
+        inventoryText = "<strong>Sold Out</strong>";
+        }
+        let descriptionText = "<p>" + data + "</p><p>" + inventoryText + "</p>";
+        $("#body-" + id).html(descriptionText);
     });
   });
 });
