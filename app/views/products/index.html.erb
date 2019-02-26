@@ -9,6 +9,14 @@ $(function () {
     let id = $(this).data("id");
     $.get("/products/" + id + "/description", function(data) {
       $("#body-" + id).text(data);
+      $.get("/products/" + id + "/inventory", function(data) {
+        if (data === true) {
+          $("#body-" + id).append("Available");
+          else {
+            $("#body-" + id).append("Sold Out");
+          }
+        }
+      });
     });
   });
 });
