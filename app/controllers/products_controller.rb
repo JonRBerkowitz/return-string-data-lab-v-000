@@ -18,12 +18,12 @@ class ProductsController < ApplicationController
   end
 
   def description
-    product = Product.find(params[:id])
+    product = Product.find_by_id(params[:id])
     render plain: product.description
   end
 
   def inventory
-    product = Product.find(params[:id])
+    product = Product.find_by_id(params[:id])
     render plain: product.inventory > 0 ? true : false
   end
 
