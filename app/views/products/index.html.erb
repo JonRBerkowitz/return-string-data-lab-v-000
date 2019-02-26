@@ -7,7 +7,7 @@
 $(function () {
   $(".js-more").on('click', function() {
     let id = $(this).data("id");
-    $.get("/products/" + id + "description", function(data) {
+    $.get("/products/" + id + "/description", function(data) {
       debugger;
       $("#body-" + id).text(data);
     });
