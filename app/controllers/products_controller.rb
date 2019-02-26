@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Prod
   end
 
 end
