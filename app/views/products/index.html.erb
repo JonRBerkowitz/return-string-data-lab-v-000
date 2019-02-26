@@ -11,9 +11,9 @@ $(function () {
       $("#body-" + id).text(data);
       $.get("/products/" + id + "/inventory", function(data) {
         if (data === true) {
-          $("#body-" + id).append("Available");
+          $("#inv-" + id).text("Available");
         } else {
-            $("#body-" + id).append("Sold Out");
+            $("#inv-" + id).text("Sold Out");
         }
       });
     });
